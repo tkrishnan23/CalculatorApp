@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#39E91E63"
     tools:context=".MainActivity">
 
     <TextView
@@ -18,10 +19,10 @@
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="348dp"
+        android:layout_width="69dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="432dp"
         android:backgroundTint="@color/hot_pink"
         android:onClick="addNums"
         android:text="+"
@@ -30,10 +31,10 @@
 
     <Button
         android:id="@+id/subButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="232dp"
+        android:layout_width="73dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="308dp"
+        android:layout_marginBottom="244dp"
         android:backgroundTint="@color/hot_pink"
         android:onClick="subNums"
         android:text="-"
@@ -42,22 +43,23 @@
 
     <Button
         android:id="@+id/multButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="348dp"
-        android:layout_marginEnd="68dp"
+        android:layout_width="75dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="276dp"
         android:backgroundTint="@color/hot_pink"
         android:onClick="multNums"
         android:text="x"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557" />
 
     <Button
         android:id="@+id/divButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="232dp"
+        android:layout_width="83dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="@color/hot_pink"
         android:onClick="divNums"
         android:text="÷"
@@ -68,19 +70,21 @@
         android:id="@+id/answerTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="324dp"
         android:textColor="@color/lavender"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/firstNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="108dp"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Enter first number"
         android:inputType="textPersonName"
@@ -92,11 +96,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="164dp"
+        android:backgroundTint="#B7FFFFFF"
         android:ems="10"
         android:hint="Enter second number"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/modButton"
+        android:layout_width="74dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginBottom="116dp"
+        android:backgroundTint="@color/hot_pink"
+        android:onClick="modNums"
+        android:text="%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
