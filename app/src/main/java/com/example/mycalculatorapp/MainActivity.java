@@ -103,23 +103,20 @@ public class MainActivity extends AppCompatActivity {
         tv_data.setText("Answer: " + expo);
     }
 
-    public void checkValueType(View view) {
-            EditText firstNum = (EditText)findViewById(R.id.firstNum);
-            EditText secondNum = (EditText)findViewById(R.id.secondNum);
-            int first =Integer.parseInt(firstNum.getText().toString());
-            int second =Integer.parseInt(secondNum.getText().toString());
-            boolean inputError = false;
-            try{
-
-                }
-                catch(InputMismatchException e)
-                {
-                    inputError = true;
-                }
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Invalid entry, please enter an integer.");
-            }
-        }
-    }
+//    public void checkValueType(View view) {
+//            EditText firstNum = (EditText)findViewById(R.id.firstNum);
+//            EditText secondNum = (EditText)findViewById(R.id.secondNum);
+//            int first =Integer.parseInt(firstNum.getText().toString());
+//            int second =Integer.parseInt(secondNum.getText().toString());
+//            boolean inputError = false;
+//            try{
+//
+//            }
+//            catch(InputMismatchException e){
+//                    inputError = true;
+//
+//            }
+//
+//        }
+//    }
 }
