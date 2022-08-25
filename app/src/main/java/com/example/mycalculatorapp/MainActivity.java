@@ -3,10 +3,14 @@ package com.example.mycalculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
         //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first =Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int sum = first + second;
+        double sum = first + second;
+        //I learned this from https://stackoverflow.com/questions/153724/
+        // how-to-round-a-number-to-n-decimal-places-in-java
+        DecimalFormat df = new DecimalFormat("#.####");
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
-        tv_data.setText("Answer: " + sum);
+        tv_data.setText("Answer: " + df.format(sum));
 
     }
 
@@ -37,53 +44,52 @@ public class MainActivity extends AppCompatActivity {
         EditText firstNum = (EditText)findViewById(R.id.firstNum);
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
-        //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first =Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int difference = first - second;
+        double difference = first - second;
+        DecimalFormat df = new DecimalFormat("#.####");
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
-        tv_data.setText("Answer: " + difference);
+        tv_data.setText("Answer: " + df.format(difference));
     }
 
     public void multNums(View view){
         EditText firstNum = (EditText)findViewById(R.id.firstNum);
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
-        //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first =Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int product = first * second;
+        double product = first * second;
+        DecimalFormat df = new DecimalFormat("#.####");
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
-        tv_data.setText("Answer: " + product);
+        tv_data.setText("Answer: " + df.format(product));
     }
 
     public void divNums(View view){
         EditText firstNum = (EditText)findViewById(R.id.firstNum);
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
-        //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first =Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int div = first/second;
+        double div = first/second;
+        DecimalFormat df = new DecimalFormat("#.####");
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
-        tv_data.setText("Answer: " + div);
+        tv_data.setText("Answer: " + df.format(div));
     }
 
     public void modNums(View view){
         EditText firstNum = (EditText)findViewById(R.id.firstNum);
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
-        //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first =Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int mod = first % second;
+        double mod = first % second;
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
         tv_data.setText("Answer: " + mod);
@@ -93,30 +99,30 @@ public class MainActivity extends AppCompatActivity {
         EditText firstNum = (EditText)findViewById(R.id.firstNum);
         EditText secondNum = (EditText)findViewById(R.id.secondNum);
 
-        //I got this from https://www.tutorialspoint.com/java/number_parseint.htm
-        int first =Integer.parseInt(firstNum.getText().toString());
-        int second =Integer.parseInt(secondNum.getText().toString());
+        double first = Double.parseDouble(firstNum.getText().toString());
+        double second =Double.parseDouble(secondNum.getText().toString());
 
-        int expo = (int) Math.pow(first, second);
+        double expo = Math.pow(first, second);
+        DecimalFormat df = new DecimalFormat("#.####");
 
         TextView tv_data=(TextView)findViewById(R.id.answerTV);
-        tv_data.setText("Answer: " + expo);
+        tv_data.setText("Answer: " + df.format(expo));
     }
 
-//    public void checkValueType(View view) {
-//            EditText firstNum = (EditText)findViewById(R.id.firstNum);
-//            EditText secondNum = (EditText)findViewById(R.id.secondNum);
-//            int first =Integer.parseInt(firstNum.getText().toString());
-//            int second =Integer.parseInt(secondNum.getText().toString());
-//            boolean inputError = false;
-//            try{
-//
-//            }
-//            catch(InputMismatchException e){
-//                    inputError = true;
-//
-//            }
-//
-//        }
-//    }
+    public boolean closeKeyboard(View view, int keyCode, KeyEvent event) {
+        if ((event.getAction() == KeyEvent.ACTION_DOWN)
+                && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void onClick(View view) {
+        try  {
+            InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+
+        }
+    }
 }
