@@ -3,15 +3,11 @@ package com.example.mycalculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
-import java.util.InputMismatchException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -109,20 +105,5 @@ public class MainActivity extends AppCompatActivity {
         tv_data.setText("Answer: " + df.format(expo));
     }
 
-    public boolean closeKeyboard(View view, int keyCode, KeyEvent event) {
-        if ((event.getAction() == KeyEvent.ACTION_DOWN)
-                && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-            return true;
-        }
-        return false;
-    }
 
-    public void onClick(View view) {
-        try  {
-            InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        } catch (Exception e) {
-
-        }
-    }
 }

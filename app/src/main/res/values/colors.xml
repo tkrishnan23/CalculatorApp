@@ -10,6 +10,8 @@
     <color name="hot_pink">#FF69B4</color>
     <color name="aqua">#00FFFF</color>
     <color name="lavender">#800080</color>
+    <color name="gradient_start">#E75480</color>
+    <color name="gradient_end">#FFB6C1</color>
 
 
 </resources>
